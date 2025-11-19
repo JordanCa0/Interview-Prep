@@ -27,21 +27,21 @@ likes_recieved: {self.likes_count(self.posts)}
 """)
     
     #Follower functions
-    def add_follower(self, Follows):
-        self.follower.append(Follows)
+    def add_follower(self, user):
+        self.follower.append(user)
 
-    def remove_follower(self, Follows):
-        self.follower.remove(Follows)
+    def remove_follower(self, user):
+        self.follower.remove(user)
 
     def follower_count(self):
         return len(self.follower)
     
     #Following Functions
-    def add_following(self, Follows):
-        self.following.append(Follows)
+    def add_following(self, user):
+        self.following.append(user)
 
-    def remove_following(self, Follows):
-        self.following.remove(Follows)
+    def remove_following(self, user):
+        self.following.remove(user)
 
     def following_count(self):
         return len(self.following)
@@ -57,9 +57,9 @@ likes_recieved: {self.likes_count(self.posts)}
         return len(self.posts)
     
     #Likes Function
-    def likes_count(self, posts):
+    def likes_count(self):
         like_count = 0
-        for post in posts:
+        for post in self.posts:
             like_count+= len(post.liked_by) 
         return like_count
         
@@ -144,8 +144,6 @@ for like in likes_list:
     post = post_by_id[post_id]
 
     post.liked_by.append(liker)
-
-    author = user_by_id[post.author_id]
 
 for user in users_list:
     user.print_summary()
