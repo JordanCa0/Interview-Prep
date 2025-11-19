@@ -13,29 +13,55 @@ class User():
     def __init__(self, id, username, follower=None, following=None, posts=None):     
         self.id = id 
         self.username = username
-        self.follower = follower
-        self.following = following
-        self.posts = posts
+        self.follower = []
+        self.following = []
+        self.posts = []
 
     def print_summary(self):
-        print(f"""{self.name} (id={self.id})
-                followers: {self.followers_count()}
-                following: {self.following_count()}
-                posts: {self.posts_count}
-                likes_recieved: {self.likes_count}
-            """)
+        print(f"""
+{self.username} (id={self.id})
+followers: {self.follower_count()}
+following: {self.following_count()}
+posts: {self.posts_count()}
+likes_recieved: {self.likes_count(self.posts)}
+""")
     
+    #Follower functions
+    def add_follower(self, Follows):
+        self.follower.append(Follows)
+
+    def remove_follower(self, Follows):
+        self.follower.remove(Follows)
+
     def follower_count(self):
         return len(self.follower)
     
+    #Following Functions
+    def add_following(self, Follows):
+        self.following.append(Follows)
+
+    def remove_following(self, Follows):
+        self.following.remove(Follows)
+
     def following_count(self):
         return len(self.following)
     
+    #Posts Functions
+    def add_post(self, Posts):
+        self.posts.append(Posts)
+
+    def remove_post(self, Posts):
+        self.posts.remove(Posts)
+
     def posts_count(self):
         return len(self.posts)
     
-    def likes_count(self):
-        return len(self.likes)
+    #Likes Function
+    def likes_count(self, posts):
+        like_count = 0
+        for post in posts:
+            like_count+= len(post.liked_by) 
+        return like_count
         
 
 class Follows: 
@@ -43,31 +69,27 @@ class Follows:
         self.follower = follower 
         self.followee = followee 
 
-
 class Posts: 
-    def __init__(self, id, author_id, content, created_at, likes = 0):
+    def __init__(self, id, author_id, content, created_at, liked_by=None):
         self.id = id 
-        self.authro_id = author_id
+        self.author_id = author_id
         self.content = content 
-        self.creataed_at = created_at 
-        self.likes = likes 
+        self.created_at = created_at 
+        self.liked_by = [] 
 
 class Likes: 
     def __init__(self, user_id, post_id):
         self.user_id = user_id 
         self.post_id = post_id
 
-
-
 #Loading Data and Creating Objects: 
-
 with open("social_data.json", "r") as file: 
     data = json.load(file)
 
 users_data = data['users']
-follows_json = data['follows']
-posts = data['posts']
-likes = data['likes']
+follows_data = data['follows']
+posts_data = data['posts']
+likes_data = data['likes']
 
 #Create User Objects
 users_list = []
@@ -75,7 +97,55 @@ for u in users_data:
     user_obj = User(u["id"], u["username"])
     users_list.append(user_obj)
 
-print(users_list)
+#Create Following Objects
+follower_list = []
+for f in follows_data: 
+    follows_obj = Follows(f["follower_id"], f["followee_id"])
+    follower_list.append(follows_obj)
 
-#Create Following Objecst
+#Create Posts Objects
+posts_list = []
+for p in posts_data:
+    posts_obj = Posts(p["id"], p["author_id"], p["content"], p["created_at"])
+    posts_list.append(posts_obj)
 
+#Create Likes List 
+likes_list = []
+for l in likes_data:
+    likes_obj = Likes(l["user_id"],l["post_id"])
+    likes_list.append(likes_obj)
+
+#Wiring Logic
+
+#Lookup tables
+user_by_id = {user.id: user for user in users_list}
+post_by_id = {post.id: post for post in posts_list}
+
+#Wire posts to authors
+for post in posts_list:
+    author = user_by_id[post.author_id]
+    author.posts.append(post)
+
+for rel in follower_list:
+    follower_id = rel.follower
+    followee_id = rel.followee
+
+    follower_user = user_by_id[follower_id]
+    followee_user = user_by_id[followee_id]
+
+    follower_user.following.append(followee_user)
+    followee_user.follower.append(follower_user)
+
+for like in likes_list:
+    user_id = like.user_id
+    post_id = like.post_id
+
+    liker = user_by_id[user_id]
+    post = post_by_id[post_id]
+
+    post.liked_by.append(liker)
+
+    author = user_by_id[post.author_id]
+
+for user in users_list:
+    user.print_summary()

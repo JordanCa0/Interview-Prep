@@ -1,0 +1,2 @@
+
+    data = json.load(file)
