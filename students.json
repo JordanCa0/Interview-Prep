@@ -1,0 +1,21 @@
+{
+  "class": {
+    "students": [
+      {
+        "id": 1,
+        "name": "Alice",
+        "scores": [85, 90, 78, 92, 88]
+      },
+      {
+        "id": 2,
+        "name": "Bob",
+        "scores": [75, 80, 82, 70, 77]
+      },
+      {
+        "id": 3,
+        "name": "Charlie",
+        "scores": [90, 95, 93, 89, 91]
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "competition": {
+    "participants": [
+      { "id": 1, "name": "Alice", "time_seconds": 320 },
+      { "id": 2, "name": "Bob", "time_seconds": 295 },
+      { "id": 3, "name": "Charlie", "time_seconds": 310 },
+      { "id": 4, "name": "David", "time_seconds": 280 },
+      { "id": 5, "name": "Eva", "time_seconds": 340 },
+      { "id": 6, "name": "Frank", "time_seconds": 300 },
+      { "id": 7, "name": "Grace", "time_seconds": 315 },
+      { "id": 8, "name": "Henry", "time_seconds": 290 },
+      { "id": 9, "name": "Ivy", "time_seconds": 275 },
+      { "id": 10, "name": "Jack", "time_seconds": 285 },
+      { "id": 11, "name": "Kara", "time_seconds": 355 },
+      { "id": 12, "name": "Liam", "time_seconds": 265 },
+      { "id": 13, "name": "Mona", "time_seconds": 300 },
+      { "id": 14, "name": "Nina", "time_seconds": 295 },
+      { "id": 15, "name": "Oscar", "time_seconds": 330 },
+      { "id": 16, "name": "Paul", "time_seconds": 270 },
+      { "id": 17, "name": "Quinn", "time_seconds": 310 },
+      { "id": 18, "name": "Ryan", "time_seconds": 285 },
+      { "id": 19, "name": "Sara", "time_seconds": 290 },
+      { "id": 20, "name": "Tom", "time_seconds": 305 }
+    ]
+  }
+}

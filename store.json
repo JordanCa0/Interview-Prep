@@ -1,0 +1,16 @@
+{
+  "store": {
+    "items": [
+      { "id": 1, "name": "Notebook", "price": 45.0 },
+      { "id": 2, "name": "Pen", "price": 20.0 },
+      { "id": 3, "name": "Pencil Box", "price": 55.0 },
+      { "id": 4, "name": "Water Bottle", "price": 120.0 },
+      { "id": 5, "name": "Bag", "price": 650.0 },
+      { "id": 6, "name": "Eraser", "price": 10.0 },
+      { "id": 7, "name": "Geometry Set", "price": 80.0 },
+      { "id": 8, "name": "Marker", "price": 60.0 },
+      { "id": 9, "name": "Glue Stick", "price": 40.0 },
+      { "id": 10, "name": "Calculator", "price": 250.0 }
+    ]
+  }
+}

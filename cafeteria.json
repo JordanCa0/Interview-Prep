@@ -1,0 +1,21 @@
+{
+  "cafeteria": {
+    "menu": [
+      { "id": 1, "name": "Veg Sandwich", "price": 80.0 },
+      { "id": 2, "name": "Cheese Burger", "price": 120.0 },
+      { "id": 3, "name": "French Fries", "price": 60.0 },
+      { "id": 4, "name": "Cold Coffee", "price": 90.0 },
+      { "id": 5, "name": "Pasta", "price": 150.0 },
+      { "id": 6, "name": "Pizza Slice", "price": 100.0 },
+      { "id": 7, "name": "Salad Bowl", "price": 110.0 },
+      { "id": 8, "name": "Soup", "price": 70.0 },
+      { "id": 9, "name": "Garlic Bread", "price": 85.0 },
+      { "id": 10, "name": "Fruit Juice", "price": 60.0 },
+      { "id": 11, "name": "Chocolate Muffin", "price": 50.0 },
+      { "id": 12, "name": "Tea", "price": 25.0 },
+      { "id": 13, "name": "Coffee", "price": 40.0 },
+      { "id": 14, "name": "Pancakes", "price": 95.0 },
+      { "id": 15, "name": "Ice Cream", "price": 70.0 }
+    ]
+  }
+}

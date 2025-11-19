@@ -1,0 +1,33 @@
+{
+  "bank": {
+    "customers": [
+      {
+        "id": 1,
+        "name": "Alice",
+        "transactions": [
+          { "type": "deposit", "amount": 5000 },
+          { "type": "withdrawal", "amount": 1200 },
+          { "type": "deposit", "amount": 2300 }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Bob",
+        "transactions": [
+          { "type": "deposit", "amount": 3000 },
+          { "type": "withdrawal", "amount": 1500 },
+          { "type": "deposit", "amount": 4500 }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Charlie",
+        "transactions": [
+          { "type": "withdrawal", "amount": 700 },
+          { "type": "deposit", "amount": 2000 },
+          { "type": "deposit", "amount": 1000 }
+        ]
+      }
+    ]
+  }
+}
